@@ -1,0 +1,12 @@
+# Vite emits content-hashed filenames under /assets, so they can never go
+# stale. Cache them for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The service worker must be re-checked on every load so updates roll out.
+/sw.js
+  Cache-Control: no-cache
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

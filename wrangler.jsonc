@@ -1,0 +1,9 @@
+{
+  // Static site served by Cloudflare (Workers static assets, the successor
+  // to Pages). `npm run deploy` builds and uploads dist/.
+  "name": "riff",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}

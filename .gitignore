@@ -1,0 +1,11 @@
+node_modules
+dist
+*.tsbuildinfo
+.wrangler
+.dev.vars
+.dev.vars.*
+.env*.local
+.DS_Store
+
+# Scratch worktrees made by Claude Code
+.claude/worktrees/

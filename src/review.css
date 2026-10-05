@@ -1,0 +1,74 @@
+/* Daily review card on the path */
+.review-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--pink), var(--lilac) 55%, var(--blue));
+  box-shadow: 0 5px 0 var(--pink-dark);
+  animation: reviewGlow 2.4s ease-in-out infinite;
+}
+.review-card:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--pink-dark); }
+.review-card b { font-size: 1.1rem; }
+.review-card p { margin: 2px 0 0; font-size: 0.88rem; opacity: 0.95; }
+.rc-icon { width: 48px; height: 48px; flex: none; border-radius: 14px; background: rgb(255 255 255 / 0.25); display: grid; place-items: center; font-size: 1.5rem; }
+.review-card:not(.done) .rc-icon { animation: spinSlow 3s linear infinite; }
+.rc-xp { margin-left: auto; flex: none; font-weight: 900; font-size: 0.85rem; background: rgb(255 255 255 / 0.25); padding: 4px 10px; border-radius: 10px; }
+.review-card.done { background: var(--card); color: var(--ink); border: 2px solid var(--line); box-shadow: none; animation: none; }
+.review-card.done .rc-icon { background: var(--good-soft); color: var(--good-ink); font-weight: 900; }
+.review-card.done p { color: var(--muted); }
+@keyframes reviewGlow { 50% { filter: brightness(1.08) saturate(1.1); } }
+@keyframes spinSlow { 0%, 70% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+
+/* Fading lesson nodes: pale, cracked gold with a due-count badge */
+.node.done.faded {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 70'%3E%3Cpath d='M20 8 L28 24 L22 33 L31 46 M28 24 L38 22 M52 12 L47 27 L55 37 L49 52 M47 27 L39 31 M12 44 L22 50 L19 60' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.75'/%3E%3C/svg%3E") center / cover no-repeat,
+    color-mix(in srgb, var(--gold) 45%, var(--line));
+  box-shadow: 0 7px 0 color-mix(in srgb, var(--gold-dark) 45%, var(--line-strong));
+  color: #fff;
+}
+.node.faded .node-icon { opacity: 0.9; }
+.node { position: relative; }
+.node-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: 13px;
+  background: var(--pink);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--bg);
+  animation: bump 0.5s cubic-bezier(.3, 1.8, .5, 1) backwards 0.6s;
+}
+
+/* Memory strength in the lesson sheet */
+.strength { margin: -6px 0 18px; }
+.strength-label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; color: var(--muted); margin-bottom: 6px; }
+.strength-bar { height: 12px; border-radius: 6px; background: var(--line); overflow: hidden; }
+.strength-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--pink), var(--blue)); transition: width 0.6s ease; }
+
+/* "From an earlier lesson" tag on mixed-in questions */
+.mixed-chip {
+  align-self: flex-start;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--blue-ink);
+  background: var(--blue-soft);
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-bottom: -6px;
+}
+.strength-fill { min-width: 6%; }

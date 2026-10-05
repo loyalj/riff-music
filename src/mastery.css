@@ -1,0 +1,95 @@
+/* Difficulty chip in the lesson header */
+.lv-chip {
+  flex: none;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 4px 9px;
+  border-radius: 10px;
+  background: var(--pink-soft);
+  color: var(--pink-ink);
+}
+.lv-chip[data-adapt='1'] { background: var(--gold); color: #fff; }
+.lv-chip[data-adapt='-1'] { background: var(--blue-soft); color: var(--blue-ink); }
+.lesson-top .combo { top: calc(46px + var(--safe-top)); }
+
+/* Feedback: what went wrong, and hear both */
+.fb-mistake { margin-top: 6px; font-size: 0.95rem; font-weight: 700; }
+.bad .fb-mistake { color: var(--red-ink); }
+.cmp-row { display: flex; gap: 8px; margin-top: 10px; }
+.cmp-btn {
+  border: 2px solid var(--line-strong);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 0 var(--line-strong);
+}
+.cmp-btn:active { transform: translateY(3px); box-shadow: none; }
+.cmp-btn:last-child { border-color: var(--good); box-shadow: 0 3px 0 var(--good-dark); color: var(--good-ink); }
+.fb-confusion { margin-top: 8px; font-size: 0.85rem; font-weight: 700; color: var(--purple-dark); }
+.lesson-foot.feedback { max-height: 62dvh; overflow-y: auto; }
+
+/* Results: level up / try again */
+.level-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  text-align: center;
+  animation: statIn 0.5s cubic-bezier(.3, 1.6, .5, 1) backwards 0.9s;
+}
+.level-banner b { font-size: 1.15rem; }
+.level-banner span { font-size: 0.9rem; opacity: 0.9; }
+.level-banner.up { background: linear-gradient(120deg, var(--gold), var(--pink)); color: #fff; box-shadow: 0 5px 0 var(--gold-dark); }
+.level-banner.retry { background: var(--blue-soft); color: var(--blue-ink); }
+.lb-crowns { font-size: 1.4rem; letter-spacing: 2px; }
+
+/* Crowns on path nodes */
+.node-crowns {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 1px 7px 1px 4px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 2px solid var(--line);
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--gold-ink);
+  white-space: nowrap;
+}
+.node.legendary {
+  background: linear-gradient(135deg, var(--pink), var(--purple) 50%, var(--blue));
+  box-shadow: 0 7px 0 var(--purple-dark);
+  animation: legend 3s ease-in-out infinite;
+}
+@keyframes legend { 50% { filter: brightness(1.15) saturate(1.2); } }
+
+/* Level pips in the lesson sheet */
+.level-pips { display: flex; align-items: center; gap: 6px; margin: -6px 0 16px; }
+.pip {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 900;
+  background: var(--line);
+  color: var(--muted);
+}
+.pip.on { background: color-mix(in srgb, var(--gold) 30%, var(--bg)); }
+.pip.next { background: var(--pink-soft); color: var(--pink-ink); outline: 2px solid var(--pink); }
+.pip-label { margin-left: 6px; font-weight: 800; color: var(--muted); font-size: 0.9rem; }
+
+/* Mix-up drill cards */
+.mixup-hint { margin: -4px 0 10px; }
+.practice-card.mixup b { font-size: 1rem; }
